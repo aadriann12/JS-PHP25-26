@@ -2,13 +2,8 @@
 
 
 function ultimaAparicionDePalabra($frase,$palabra){
-    
 
-if (strrpos($frase,$palabra)) {
-   
-} else {
-
-}
+return strrpos($frase, $palabra);
 
 
 
