@@ -10,7 +10,7 @@ if (numero>0) {
         }
         cont=0;
 if (index===numero) {
-    resultado+="_"
+    resultado+="____________________"
 } else {
     resultado+="_|"
     
@@ -19,14 +19,7 @@ if (index===numero) {
  resultado+="\n";
         
     }
-} else {if (numero<0) {
-
-    alert ("hola");
-} else {
-
-
-
-}}
+}
 
 
 alert(resultado);

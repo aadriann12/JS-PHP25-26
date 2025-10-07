@@ -1,7 +1,7 @@
 let numerominimo=2;
 let numeroMaximo=10;
 let entre=numeroMaximo-numerominimo;
-let actual=numerominimo;
+let actual=numerominimo+1;
 
      let intervalo =setInterval(() =>{
 console.log(actual);
