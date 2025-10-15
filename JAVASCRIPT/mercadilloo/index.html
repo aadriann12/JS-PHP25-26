@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UD2E2 - Mercadillo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+    }
+    form, section {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #resultado {
+      background: #f3f3f3;
+      padding: 10px;
+      border-radius: 8px;
+      font-family: monospace;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🛒 Inventario Mercadillo</h1>
+
+  <form id="formProductos">
+    <label>Nombre del producto:</label>
+    <input type="text" id="nombre" placeholder="Ej. Manzanas">
+
+    <label>Cantidad:</label>
+    <input type="number" id="cantidad" placeholder="Ej. 10">
+
+    <label>Precio (€):</label>
+    <input type="number" step="0.01" id="precio" placeholder="Ej. 1.50">
+
+    <label>Categoría:</label>
+    <select id="categoria">
+      <option value="fruta">Fruta</option>
+      <option value="verdura">Verdura</option>
+      <option value="bebida">Bebida</option>
+      <option value="otro">Otro</option>
+    </select>
+
+    <button type="button" id="btnAgregar">Agregar producto</button>
+    <button type="button" id="btnMostrar">Mostrar inventario</button>
+  </form>
+
+  <section>
+    <h2>📋 Resultados</h2>
+    <div id="resultado"></div>
+  </section>
+
+  <script>
+    // -------------------------------
+    // UD2E2 - Mercadillo
+    // -------------------------------
+
+    const $negocio = (() => {
+      const inventario = {};
+
+      function agregarProducto(nombre, cantidad, precio, categoria) {
+        if (inventario[nombre]) {
+          alert(`El producto "${nombre}" ya existe.`);
+          return;
+        }
+        inventario[nombre] = { cantidad, precio, categoria };
+        alert(`Producto "${nombre}" añadido correctamente.`);
+      }
+
+      function eliminarProducto(nombre) {
+        if (!inventario[nombre]) {
+          alert(`El producto "${nombre}" no existe.`);
+          return;
+        }
+        delete inventario[nombre];
+        alert(`Producto "${nombre}" eliminado.`);
+      }
+
+      function buscarProducto(nombre) {
+        return inventario[nombre] || null;
+      }
+
+      function actualizarInventario(nombre, cantidad) {
+        if (!inventario[nombre]) {
+          alert(`El producto "${nombre}" no existe.`);
+          return;
+        }
+        inventario[nombre].cantidad += cantidad;
+        if (inventario[nombre].cantidad <= 0) {
+          inventario[nombre].cantidad = 0;
+          alert(`Stock de "${nombre}" agotado. Reponer producto.`);
+        }
+      }
+
+      function ordenarProductosPorPrecio() {
+        return Object.entries(inventario)
+          .map(([nombre, datos]) => ({ nombre, ...datos }))
+          .sort((a, b) => a.precio - b.precio);
+      }
+
+      function imprimirInventario() {
+        return Object.entries(inventario).map(([nombre, datos]) => {
+          const total = datos.cantidad * datos.precio;
+          return { nombre, categoria: datos.categoria, cantidad: datos.cantidad, precio: datos.precio, total };
+        });
+      }
+
+      function filtrarProductosPorCategoria(categoria) {
+        return Object.entries(inventario)
+          .filter(([_, datos]) => datos.categoria === categoria)
+          .map(([nombre, datos]) => ({ nombre, cantidad: datos.cantidad, precio: datos.precio }));
+      }
+
+      return {
+        agregarProducto,
+        eliminarProducto,
+        buscarProducto,
+        actualizarInventario,
+        ordenarProductosPorPrecio,
+        imprimirInventario,
+        filtrarProductosPorCategoria
+      };
+    })();
+
+    // -------------------------------
+    // Conexión con el HTML
+    // -------------------------------
+    window.addEventListener('load', () => {
+      const salida = document.getElementById('resultado');
+      const btnAgregar = document.getElementById('btnAgregar');
+      const btnMostrar = document.getElementById('btnMostrar');
+
+      btnAgregar.addEventListener('click', () => {
+        const nombre = document.getElementById('nombre').value;
+        const cantidad = parseInt(document.getElementById('cantidad').value);
+        const precio = parseFloat(document.getElementById('precio').value);
+        const categoria = document.getElementById('categoria').value;
+        $negocio.agregarProducto(nombre, cantidad, precio, categoria);
+      });
+
+      btnMostrar.addEventListener('click', () => {
+        const lista = $negocio.imprimirInventario();
+        if (lista.length === 0) {
+          salida.innerHTML = "<p>No hay productos en el inventario.</p>";
+          return;
+        }
+        salida.innerHTML = lista.map(p =>
+          `<p><strong>${p.nombre}</strong> | ${p.categoria} | ${p.cantidad} uds | ${p.precio.toFixed(2)} € | Total: ${(p.total).toFixed(2)} €</p>`
+        ).join('');
+      });
+    });
+  </script>
+</body>
+</html>
