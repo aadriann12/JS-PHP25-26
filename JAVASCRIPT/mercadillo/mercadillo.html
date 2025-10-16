@@ -7,9 +7,15 @@
         <script src="mercadillo.js"></script>
 </head>
 <body>
-    <input type="button" value="Agregar Producto" onclick="agregarProducto(prompt('Nombre del producto'),parseFloat(prompt('Precio del producto')),prompt('Categoria del producto'))">
-    <input type="button" value="Buscar Producto" onclick="buscarProducto(prompt('Nombre del producto'))">
-    <input type="button" value="Eliminar Producto" onclick="eliminarProducto(prompt('Nombre del producto'))">
+    <input type="text" value="nombre" id="nombre">
+    <input type="text" value="precio" id="precio">
+    <input type="text" value="categoria" id="categoria">
+    <input type="button" value="Agregar Producto" onclick="agregarProducto(document.getElementById('nombre').value,parseFloat(document.getElementById('precio').value),document.getElementById('categoria').value)">
+    <input type="button" value="Buscar Producto" onclick="buscarProducto(document.getElementById('nombre').value)">
+    <input type="button" value="Eliminar Producto" onclick="eliminarProducto(document.getElementById('nombre').value)">
+    <input type="button" value="Mostrar Productos" onclick="mostrarProductosEnTexto()">
+    <div id="productos"></div>
+
 </body>
 
 </html>
