@@ -83,3 +83,16 @@ function filtrarProductosPorCategoria(categoria){
     let listaFiltrada=productos.filter(producto=>producto.categoria===categoria);
   document.getElementById('productos').innerHTML = listaFiltrada;
 }
+
+window.addEventListener('load',()=>{
+    let $btnCrear=document.getElementById('Agregar Producto');
+    let $btnBorrar=document.getElementById('Eliminar Producto');
+    let $btncrear,addEventListener('click',agregarProducto)
+    let $txtNombre=document.getElementById('nombre');
+      let $txtPrecio=document.getElementById('precio');
+        let $txtCategoria=document.getElementById('categoria');
+
+    agregarProducto($txtNombre)
+
+})
+
