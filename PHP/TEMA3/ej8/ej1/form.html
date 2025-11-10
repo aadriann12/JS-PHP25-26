@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Registro de Módulos</h1>
+    
+    <form action="procesa_post.php" method="post"> 
+        
+        <label for="nombre">Nombre del Alumno:</label>
+        <input type="text" id="nombre" name="nombre_alumno" required>
+        <br><br>
+
+        <label for="modulo">Módulo a escoger:</label>
+        <select id="modulo" name="modulo_elegido">
+            <option value="DWES">Desarrollo Web en Entorno Servidor</option>
+            <option value="DWEC">Desarrollo Web en Entorno Cliente</option>
+        </select>
+        <br><br>
+
+        <input type="submit" value="Enviar por POST">
+      
+    </form>
+</body>
+</html>
