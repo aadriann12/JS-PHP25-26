@@ -11,19 +11,9 @@ constructor(libroId, titulo, ISBN, autorId, bibliotecaId, prestamos = []) {
     }
 
 generaarHTMLCreacion(){
-return` <form action="procesar_datos.php" method="POST">
-    <label for="titulo">titulo:</label>
-    <input type="text" id="titulo" name="titulo" required>
-    <br>
-    >    <label for="isbn">isbn:</label>
-    <input type="text" id="isbn" name="isbn" required>
-    <br>
-    >    <label for="autor">autor:</label>
-    <input type="text" id="autor" name="autor" required>
-    <br>
 
-    <button type="submit">Enviar</button>
-</form>`;
+    
+return `` ;
 
 
 
