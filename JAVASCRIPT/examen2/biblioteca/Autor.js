@@ -1,7 +1,7 @@
 'use strict';
 class Autor{
-constructor(autorid, nombre, nacionalidad, biografia, libros = []) {
-        this.autorid = autorid;
+constructor(autorId, nombre, nacionalidad, biografia, libros = []) {
+        this.autorId = autorId;
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
         this.biografia = biografia;
