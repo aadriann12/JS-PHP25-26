@@ -1,16 +1,27 @@
+<?php 
+
+
+
+
+
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<<<<<<< HEAD
-    <script src="ej5.js" defer ></script>
-=======
-    <script src="forma.js"></script>
->>>>>>> 4cf68c3cfcaed58d76eaa07b7189849dd15e229c
 </head>
 <body>
-    
+    <form action="" method="get">
+<h1>sumar 10 numeros</h1>
+
 </body>
 </html>

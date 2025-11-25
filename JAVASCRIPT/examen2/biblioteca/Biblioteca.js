@@ -19,7 +19,7 @@ generarHTMLCreacion(){
 
 generarHTMLEdicion(){
 
-
+return 
 
 
 

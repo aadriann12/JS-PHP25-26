@@ -93,10 +93,10 @@ function fmt($n) { return number_format((float)$n, 2, ',', '.'); }//fmt es
 
     
     <?php if ($errores): ?>
-        <div class="error" role="alert">//el div es 
+        <div class="error" role="alert">
             <ul>
                 <?php foreach ($errores as $e): ?>
-                    <li><?= h($e) ?></li>//h es para evitar inyecciones         
+                    <li><?= h($e) ?></li>         
                 <?php endforeach; ?>
             </ul>
         </div>
