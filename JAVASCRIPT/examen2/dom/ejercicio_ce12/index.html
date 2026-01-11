@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>CRUD Usuarios (API + DOM)</title>
+  <style>
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #333; padding: 6px; }
+    .selected { background: #cce5ff; }
+    #mensaje { color: #b00020; }
+    #estado { margin: 8px 0; }
+    .muted { opacity: .8; }
+  </style>
+</head>
+<body>
+
+  <h1>CRUD Usuarios</h1>
+
+  <button id="btnCargar">Cargar desde API</button>
+  <button id="btnLimpiar">Limpiar</button>
+
+  <div id="estado" class="muted"></div>
+  <div id="mensaje"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Ciudad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tbodyUsuarios"></tbody>
+  </table>
+
+  <h2 id="tituloForm">Alta / Edición</h2>
+
+  <form id="formUsuario">
+    <input type="text" name="nombre" placeholder="Nombre" />
+    <input type="email" name="email" placeholder="Email" />
+    <input type="text" name="ciudad" placeholder="Ciudad" />
+    <button type="submit" id="btnGuardar">Guardar</button>
+    <button type="button" id="btnCancelar">Cancelar edición</button>
+  </form>
+
+  <script src="app.js"></script>
+</body>
+</html>

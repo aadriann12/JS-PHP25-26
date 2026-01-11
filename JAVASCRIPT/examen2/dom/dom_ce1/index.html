@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laboratorio DOM</title>
+  <style>
+    body { font-family: system-ui, Arial; max-width: 980px; margin: 24px auto; padding: 0 12px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 12px; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    #log { white-space: pre-wrap; border: 1px solid #eee; background: #fafafa; padding: 10px; min-height: 120px; }
+    #playground { border: 2px dashed #ccc; padding: 12px; min-height: 160px; }
+    .hidden { display: none; }
+    .pill { padding: 2px 8px; border: 1px solid #ddd; border-radius: 999px; font-size: 12px; }
+    .danger { border-color: #e11; }
+    .ok { border-color: #1a1; }
+    .highlight { outline: 2px solid #333; }
+    ul { margin: 8px 0 0; padding-left: 18px; }
+    li { margin: 4px 0; }
+    button { padding: 6px 10px; }
+    input, select { padding: 6px 8px; }
+    a { color: #06c; }
+    code { background:#f3f3f3; padding:1px 4px; border-radius:4px; }
+  </style>
+</head>
+
+<body>
+  <header class="card" id="top" data-app="dom-lab" data-version="1.0">
+    <h1>Laboratorio DOM</h1>
+    <p class="row">
+      <span class="pill" id="statusPill" data-status="idle">STATUS: idle</span>
+      <span class="pill" id="counterPill" data-count="0">Clicks: 0</span>
+      <span class="pill" id="storagePill">Storage: -</span>
+    </p>
+
+    <nav class="row" id="nav">
+      <a href="#seccion-form" id="linkForm">Ir a formulario</a>
+      <a href="#seccion-lista" id="linkLista">Ir a lista</a>
+      <a href="https://example.com" id="externalLink" target="_blank" rel="noreferrer">Enlace externo</a>
+      <button id="btnReset" type="button">Reset UI</button>
+    </nav>
+  </header>
+
+  <main class="grid">
+    <!-- SECCIÓN 1: Selección / atributos / clases -->
+    <section class="card" id="seccion-selectores" data-section="selectores">
+      <h2>Selectores + atributos + clases</h2>
+
+      <div class="row">
+        <button id="btnToggleStatus" type="button" data-action="toggle-status">Toggle status</button>
+        <button id="btnToggleHidden" type="button" data-action="toggle-hidden">Mostrar/ocultar bloque</button>
+        <button id="btnChangeAttr" type="button" data-action="change-attr">Cambiar atributo title</button>
+        <button id="btnTheme" type="button" data-action="theme">Cambiar tema (classList)</button>
+      </div>
+
+      <p id="textInfo" title="Texto inicial">
+        Este texto sirve para practicar <code>textContent</code>, <code>innerHTML</code>,
+        <code>getAttribute</code> y <code>setAttribute</code>.
+      </p>
+
+      <div id="toggleBlock" class="card">
+        <strong>Bloque alternable</strong>
+        <p class="hint">Tócame con JS para esconder/mostrar (class <code>hidden</code>).</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: Eventos / bubbling / delegación -->
+    <section class="card" id="seccion-eventos" data-section="eventos">
+      <h2>Eventos + bubbling + delegación</h2>
+
+      <div class="card" id="zonaCaptura" data-zone="capture">
+        <strong>Zona (para probar capture/bubble)</strong>
+        <div class="card" id="zonaBurbuja" data-zone="bubble">
+          <p>Haz click en los botones. Practica <code>stopPropagation</code> y fases.</p>
+
+          <div class="row" id="toolbar" data-role="toolbar">
+            <button type="button" class="tool" data-tool="add">Añadir item</button>
+            <button type="button" class="tool" data-tool="mark">Marcar selected</button>
+            <button type="button" class="tool" data-tool="clear">Limpiar selección</button>
+          </div>
+
+          <ul id="list" data-list="vehiculos">
+            <li data-id="1" data-type="item"><span class="name">Seat Ibiza</span> <button type="button" class="del" data-action="delete">X</button></li>
+            <li data-id="2" data-type="item"><span class="name">Ford Focus</span> <button type="button" class="del" data-action="delete">X</button></li>
+            <li data-id="3" data-type="item"><span class="name">Toyota Yaris</span> <button type="button" class="del" data-action="delete">X</button></li>
+          </ul>
+
+          <p class="hint">
+            La lista está pensada para practicar <b>delegación de eventos</b>:
+            un solo listener en <code>#list</code> para borrar, seleccionar, etc.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: Formulario (preventDefault / validación / lectura) -->
+    <section class="card" id="seccion-form" data-section="form">
+      <h2>Formulario + validación DOM</h2>
+
+      <form id="formProducto" novalidate>
+        <div class="row">
+          <label>
+            Nombre
+            <input id="inpNombre" name="nombre" placeholder="Ej: Pan" autocomplete="off" />
+          </label>
+
+          <label>
+            Precio
+            <input id="inpPrecio" name="precio" type="number" step="0.01" placeholder="Ej: 1.20" />
+          </label>
+
+          <label>
+            Categoría
+            <select id="selCategoria" name="categoria">
+              <option value="">(elige)</option>
+              <option value="fruta">Fruta</option>
+              <option value="horno">Horno</option>
+              <option value="lacteos">Lácteos</option>
+            </select>
+          </label>
+
+          <label class="row">
+            <input id="chkUrgente" name="urgente" type="checkbox" />
+            Urgente
+          </label>
+        </div>
+
+        <div class="row">
+          <button id="btnSubmit" type="submit">Añadir al “playground”</button>
+          <button id="btnClearForm" type="button">Limpiar form</button>
+        </div>
+
+        <p id="formMsg" class="hint" data-msg="idle">Mensajes del formulario aquí.</p>
+      </form>
+
+      <p class="hint">
+        Aquí practicas: <code>submit</code>, <code>preventDefault</code>, leer inputs,
+        <code>value</code>, <code>checked</code>, <code>classList</code> para errores, etc.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 4: Crear / insertar / eliminar nodos -->
+    <section class="card" id="seccion-lista" data-section="dom-create">
+      <h2>Crear/insertar/eliminar nodos</h2>
+
+      <div class="row">
+        <button id="btnCreateCard" type="button">Crear card</button>
+        <button id="btnPrependCard" type="button">Prepend card</button>
+        <button id="btnRemoveLast" type="button">Eliminar última</button>
+        <button id="btnCloneFirst" type="button">Clonar primera</button>
+      </div>
+
+      <div id="playground" data-playground="true" aria-live="polite">
+        <p class="hint">Aquí se insertan elementos creados con JS (createElement, append, prepend...).</p>
+      </div>
+
+      <p class="hint">
+        Practica: <code>createElement</code>, <code>append</code>, <code>prepend</code>,
+        <code>before/after</code>, <code>remove</code>, <code>cloneNode</code>,
+        <code>dataset</code>, <code>classList</code>.
+      </p>
+    </section>
+  </main>
+
+  <section class="card">
+    <h2>Log / Debug</h2>
+    <div class="row">
+      <button id="btnLogClear" type="button">Limpiar log</button>
+      <button id="btnSave" type="button">Guardar estado (localStorage)</button>
+      <button id="btnLoad" type="button">Cargar estado (localStorage)</button>
+    </div>
+    <div id="log"></div>
+
+    <p class="hint">
+      Bonus: añade un <code>MutationObserver</code> para registrar cambios en <code>#playground</code>.
+    </p>
+  </section>
+
+  <!-- Tú crearás app.js -->
+  <script src="app.js"></script>
+</body>
+</html>

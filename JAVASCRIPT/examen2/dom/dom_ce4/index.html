@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DOM Vehículos</title>
+  <style>
+    body { font-family: Arial; margin: 20px; max-width: 900px; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: end; }
+    label { display: flex; flex-direction: column; gap: 4px; }
+    input, select { padding: 6px 8px; }
+    button { padding: 7px 10px; cursor: pointer; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 10px; margin: 10px 0; }
+    .hidden { display: none; }
+    .errorField { outline: 2px solid red; }
+    #msg { color: red; min-height: 18px; }
+    #log { white-space: pre-wrap; border: 1px solid #eee; padding: 10px; min-height: 120px; background:#fafafa; }
+    .pill { display:inline-block; padding:2px 8px; border:1px solid #ddd; border-radius:999px; }
+  </style>
+</head>
+<body>
+
+  <h2>Gestor de vehículos</h2>
+
+  <form id="formVehiculo" novalidate>
+    <div class="row">
+      <label>
+        Matrícula
+        <input id="inpMatricula" placeholder="1234ABC" />
+      </label>
+
+      <label>
+        Marca
+        <select id="selMarca">
+          <option value="">(elige)</option>
+          <option value="Seat">Seat</option>
+          <option value="Ford">Ford</option>
+          <option value="Toyota">Toyota</option>
+          <option value="Peugeot">Peugeot</option>
+        </select>
+      </label>
+
+      <label>
+        Modelo
+        <input id="inpModelo" placeholder="Ibiza" />
+      </label>
+
+      <label>
+        Kilómetros
+        <input id="inpKm" type="number" min="0" placeholder="0" />
+      </label>
+
+      <label>
+        Precio (€)
+        <input id="inpPrecio" type="number" min="0" step="0.01" placeholder="10000" />
+      </label>
+
+      <button id="btnAdd" type="submit">Añadir</button>
+    </div>
+
+    <p id="msg"></p>
+  </form>
+
+  <hr>
+
+  <div class="row">
+    <span class="pill" id="contador">Total: 0</span>
+
+    <label>
+      Filtro marca
+      <select id="  ">
+        <option value="">(todas)</option>
+        <option value="Seat">Seat</option>
+        <option value="Ford">Ford</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Peugeot">Peugeot</option>
+      </select>
+    </label>
+
+    <label>
+      Buscar matrícula
+      <input id="buscarMatricula" placeholder="escribe parte..." />
+    </label>
+
+    <button id="btnOrdenPrecio" type="button">Ordenar por precio</button>
+    <button id="btnClearLog" type="button">Limpiar log</button>
+  </div>
+
+  <div id="contenedor"></div>
+
+  <h3>Log</h3>
+  <div id="log"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

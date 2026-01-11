@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pruebas JS sencillas</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    button { margin: 5px; }
+    #salida { white-space: pre-line; border: 1px solid #ccc; padding: 10px; }
+  </style>
+</head>
+<body>
+
+<h2>Gestor de vehículos (simple)</h2>
+
+<button onclick="listar()">Listar vehículos</button>
+
+<br><br>
+
+<input id="marca" placeholder="Marca (Ford, Seat...)">
+<button onclick="filtrar()">Filtrar por marca</button>
+
+<br><br>
+
+<input id="idVehiculo" type="number" placeholder="ID vehículo">
+<button onclick="buscar()">Buscar por ID</button>
+
+<h3>Salida</h3>
+<div id="salida"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

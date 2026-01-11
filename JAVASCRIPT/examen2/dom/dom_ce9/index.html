@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de productos</title>
+  <style>
+    body { font-family: Arial; max-width: 900px; margin: 20px; }
+    .error { color: red; }
+    .selected { background-color: #e0f2ff; }
+    table { border-collapse: collapse; width: 100%; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 6px; }
+    button { margin: 0 3px; }
+  </style>
+</head>
+<body>
+
+<h2>Gestión de productos</h2>
+
+<form id="formProducto">
+  <input id="inpNombre" placeholder="Nombre del producto">
+  <input id="inpCategoria" placeholder="Categoría">
+  <input id="inpPrecio" type="number" placeholder="Precio">
+  <button type="submit">Añadir producto</button>
+</form>
+
+<p id="mensaje" class="error"></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Categoría</th>
+      <th>Precio</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody id="tablaProductos"></tbody>
+</table>
+
+<button id="btnEliminarSeleccionado">Eliminar seleccionado</button>
+<button id="btnLimpiar">Eliminar todos</button>
+
+<div id="log"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de alumnos</title>
+  <style>
+    body { font-family: Arial; max-width: 800px; margin: 20px; }
+    .error { color: red; }
+    .alumno { border: 1px solid #ccc; padding: 8px; margin: 6px 0; }
+    .selected { background-color: #e0f2ff; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    td, th { border: 1px solid #ccc; padding: 6px; text-align: left; }
+  </style>
+</head>
+<body>
+
+<h2>Gestión de alumnos</h2>
+
+<form id="formAlumno">
+  <input id="inpNombre" placeholder="Nombre del alumno">
+  <input id="inpNota" type="number" min="0" max="10" placeholder="Nota">
+  <button type="submit">Añadir alumno</button>
+</form>
+
+<p id="mensaje" class="error"></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Nota</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody id="tablaAlumnos"></tbody>
+</table>
+
+<button id="btnLimpiar">Eliminar todos</button>
+
+<div id="log"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

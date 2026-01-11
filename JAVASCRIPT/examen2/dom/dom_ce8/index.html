@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de tareas</title>
+  <style>
+    body { font-family: Arial; max-width: 700px; margin: 20px; }
+    .error { color: red; }
+    .tarea { border: 1px solid #ccc; padding: 6px; margin: 4px 0; }
+    .completada { background-color: #d4edda; }
+    .selected { background-color: #e0f2ff; }
+  </style>
+</head>
+<body>
+
+<h2>Gestión de tareas</h2>
+
+<form id="formTarea">
+  <input id="inpTexto" placeholder="Texto de la tarea">
+  <button type="submit">Añadir tarea</button>
+</form>
+
+<p id="mensaje" class="error"></p>
+
+<div id="listaTareas"></div>
+
+<button id="btnLimpiar">Eliminar todas</button>
+
+<div id="log"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

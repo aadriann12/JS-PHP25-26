@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de usuarios</title>
+  <style>
+    body { font-family: Arial; max-width: 900px; margin: 20px; }
+    .error { color: red; }
+    .selected { background-color: #e0f2ff; }
+    table { border-collapse: collapse; width: 100%; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 6px; }
+    button { margin: 0 3px; }
+  </style>
+</head>
+<body>
+
+<h2>Gestión de usuarios</h2>
+
+<form id="formUsuario">
+  <input id="inpNombre" placeholder="Nombre">
+  <input id="inpEdad" type="number" placeholder="Edad">
+  <input id="inpEmail" placeholder="Email">
+  <button type="submit">Añadir usuario</button>
+</form>
+
+<p id="mensaje" class="error"></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Email</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody id="tablaUsuarios"></tbody>
+</table>
+
+<button id="btnEliminarSeleccionado">Eliminar seleccionado</button>
+<button id="btnLimpiar">Eliminar todos</button>
+
+<div id="log"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
