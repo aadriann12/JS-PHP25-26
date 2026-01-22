@@ -1,5 +1,5 @@
 <?php
-require_once '../conexionBD.php';
+require_once 'conexionBD.php';
 
 function confirmarllegada(): bool {
 $conxion=ConexionBD::getConexion();
@@ -22,7 +22,7 @@ if ($stmt2->rowCount()>0) {
    return false;
 }
 
-$pdo->commit();
+$conxion->commit();
 return true;
 }
 

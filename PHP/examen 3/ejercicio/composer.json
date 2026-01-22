@@ -1,0 +1,18 @@
+{
+    "name": "usuario/ejercicio",
+    "description": "jeje",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Usuario\\Ejercicio\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "adrian"
+        }
+    ]
+}
