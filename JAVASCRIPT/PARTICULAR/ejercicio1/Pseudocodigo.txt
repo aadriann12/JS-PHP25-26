@@ -1,0 +1,69 @@
+//pseudocodigo
+
+//clase Vehiculo{
+//private marca
+//private modelo
+//private velocidad;
+
+ constructor(marca modelo velocidad){
+
+marca=marca;
+modelo=modelo;
+velocidad=0;
+
+ }
+ acelerar(km){
+    velocidad += km
+ }
+ frenar(km){
+    velocidad-=km
+
+ }
+//setter
+
+set velocidad(NuevaVelocidad){
+    si(NuevaVelocidad>0){
+devuelve velocidad+NuevaVelocidad
+    } sino{
+        devuelve null
+    }
+}
+
+
+ //getters
+
+ getmodelo(){
+    devuelve modelo
+ }
+  get marca(){
+    devuelve marca
+ }
+  get velocidad(){
+    devuelve velocidad
+ }
+
+
+
+
+fin clase Vehiculo}
+
+
+clase Coche hereda de vehiculo{
+
+private numPuertas
+
+constructor (marca,modelo,numPuertas){
+    super(marca, modelo)
+    this numapauertas=Numpuertas
+}
+
+abrirMaletero(){
+si(maletero esta abierto){
+    devuelve false
+}sino{
+    abre maletero
+    devuelve true
+}
+}
+
+}
