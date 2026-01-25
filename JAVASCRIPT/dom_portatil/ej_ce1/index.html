@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de usuarios</title>
+  <style>
+    .selected {
+      background-color: #cce5ff;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    td, th {
+      border: 1px solid #333;
+      padding: 5px;
+    }
+    #mensaje {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Usuarios</h1>
+
+  <button id="btnCargar">Cargar usuarios</button>
+
+  <div id="estado"></div>
+  <div id="mensaje"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Ciudad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tablaUsuarios">
+      <!-- filas dinámicas -->
+    </tbody>
+  </table>
+
+  <h2>Añadir usuario</h2>
+
+  <form id="formUsuario">
+    <input type="text" name="nombre" placeholder="Nombre">
+    <input type="email" name="email" placeholder="Email">
+    <input type="text" name="ciudad" placeholder="Ciudad">
+    <button type="submit">Añadir</button>
+  </form>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
