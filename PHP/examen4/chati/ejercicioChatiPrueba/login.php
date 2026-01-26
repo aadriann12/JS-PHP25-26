@@ -16,11 +16,11 @@ if ($username=='admin'&&$password=='1234') {
 }
 
     } else {
-        # code...
+   
     }
     
 } else {
-    # code...
+
 }
 
 ?>
