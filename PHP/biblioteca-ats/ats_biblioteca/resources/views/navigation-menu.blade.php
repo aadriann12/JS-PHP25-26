@@ -44,6 +44,13 @@
                                 Categorías
                             </x-nav-link>
                         @endif
+
+                        {{-- Solo Admin --}}
+                        @if(auth()->user()->isAdmin())
+                            <x-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.*')">
+                                Usuarios
+                            </x-nav-link>
+                        @endif
                     @endauth
                 </div>
 
@@ -197,6 +204,13 @@
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.*')">
                         Categorías
+                    </x-responsive-nav-link>
+                @endif
+
+                {{-- Solo Admin --}}
+                @if(auth()->user()->isAdmin())
+                    <x-responsive-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.*')">
+                        Usuarios
                     </x-responsive-nav-link>
                 @endif
             @endauth

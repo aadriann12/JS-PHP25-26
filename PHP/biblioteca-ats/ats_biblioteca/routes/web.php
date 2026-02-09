@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
@@ -36,5 +37,10 @@ Route::middleware([
         Route::post('/loans/{loan}/approve', [LoanController::class, 'approve'])->name('loans.approve');
         Route::post('/loans/{loan}/reject', [LoanController::class, 'reject'])->name('loans.reject');
         Route::post('/loans/{loan}/return', [LoanController::class, 'markAsReturned'])->name('loans.return');
+    });
+
+    // Solo admin
+    Route::middleware('role:admin')->group(function () {
+        Route::get('/admin/users', [UserAdminController::class, 'index'])->name('admin.users.index');
     });
 });
