@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UT6 Bootstrap 4 - Ejercicio Completo</title>
+
+  <!-- Bootstrap 4.6 CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+
+  <style>
+    /* Solo para visualizar columnas/zonas (en examen puedes quitarlo si te lo piden) */
+    .demo-col { background: rgba(0,0,0,.04); border: 1px dashed rgba(0,0,0,.15); min-height: 48px; }
+    .demo-box { background: rgba(0,0,0,.03); border: 1px solid rgba(0,0,0,.08); }
+    .row-height { height: 120px; }
+    .small-note { font-size: .9rem; }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <!-- ============ CABECERA (container-fluid + colores + spacing) ============ -->
+  <header class="container-fluid bg-dark text-white py-3 mb-4">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between">
+        <div>
+          <h1 class="h3 mb-1">DIW UT6 — Bootstrap 4 (Ejercicio Completo)</h1>
+          <p class="mb-0 text-muted small-note">Grid · Breakpoints · Contenido · Media · Embeds · Utilidades</p>
+        </div>
+
+        <!-- Display util: visible solo a partir de md -->
+        <div class="d-none d-md-block">
+          <span class="badge badge-info p-2">d-none d-md-block</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ CONTENIDO PRINCIPAL (container) ============ -->
+  <main class="container">
+
+    <!-- ============ 1) GRID + BREAKPOINTS + SPACING ============ -->
+    <section class="demo-box rounded p-3 p-md-4 mb-4">
+      <h2 class="h4 mb-3">1) Grid + Breakpoints + Spacing</h2>
+
+      <!-- Tres columnas con tamaños distintos según pantalla -->
+      <div class="row mb-3">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 demo-col p-2">
+          <strong>A</strong><br><span class="small-note">col-12 col-sm-6 col-md-4 col-lg-2</span>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-6 demo-col p-2">
+          <strong>B</strong><br><span class="small-note">col-12 col-sm-6 col-md-4 col-lg-6</span>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 demo-col p-2">
+          <strong>C</strong><br><span class="small-note">col-12 col-md-4 col-lg-4</span>
+        </div>
+      </div>
+
+      <!-- Columnas automáticas (misma proporción) -->
+      <div class="row mb-3">
+        <div class="col demo-col p-2">col (auto)</div>
+        <div class="col demo-col p-2">col (auto)</div>
+        <div class="col demo-col p-2">col (auto)</div>
+      </div>
+
+      <!-- col-auto (según contenido) + columna que ocupa el resto -->
+      <div class="row mb-3">
+        <div class="col-auto demo-col p-2">
+          <span class="badge badge-primary">col-auto</span>
+        </div>
+        <div class="col demo-col p-2">
+          <span class="small-note">col (rellena el espacio restante)</span>
+        </div>
+      </div>
+
+      <!-- Forzar salto de línea con w-100 -->
+      <div class="row mb-3">
+        <div class="col-6 demo-col p-2">col-6</div>
+        <div class="w-100"></div>
+        <div class="col-6 demo-col p-2">col-6 (después de w-100)</div>
+      </div>
+
+      <!-- no-gutters (quitar gutter) -->
+      <div class="row no-gutters mb-3">
+        <div class="col-6 demo-col p-2">no-gutters A</div>
+        <div class="col-6 demo-col p-2">no-gutters B</div>
+      </div>
+
+      <!-- Offset responsive -->
+      <div class="row mb-3">
+        <div class="col-6 col-md-4 offset-md-2 demo-col p-2">
+          <strong>offset-md-2</strong><br><span class="small-note">Desde md se desplaza 2</span>
+        </div>
+      </div>
+
+      <!-- Order responsive -->
+      <div class="row mb-3">
+        <div class="col-6 order-2 order-md-1 demo-col p-2">Bloque 1 (order-2 / md: order-1)</div>
+        <div class="col-6 order-1 order-md-2 demo-col p-2">Bloque 2 (order-1 / md: order-2)</div>
+      </div>
+
+      <!-- Alineación vertical/horizontal (flex) -->
+      <div class="row row-height align-items-center justify-content-between mb-0 border rounded p-2 bg-white">
+        <div class="col-3 demo-col p-2">align-items-center</div>
+        <div class="col-3 demo-col p-2">justify-content-between</div>
+      </div>
+
+      <hr class="my-4">
+
+      <!-- Spacing util: m*/p* + responsive -->
+      <div class="row">
+        <div class="col-12 col-md-6 demo-col p-2 p-md-4 mb-3 mb-md-0">
+          <strong>Paddings:</strong> <code>p-2 p-md-4</code>
+        </div>
+        <div class="col-12 col-md-6 demo-col p-2 mt-0 mt-md-2">
+          <strong>Margins:</strong> <code>mt-md-2</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2) ANIDAMIENTO (NESTING) ============ -->
+    <section class="demo-box rounded p-3 p-md-4 mb-4">
+      <h2 class="h4 mb-3">2) Anidamiento (Row dentro de Col)</h2>
+
+      <div class="row">
+        <div class="col-12 col-lg-4 demo-col p-2 mb-3 mb-lg-0">
+          Columna izquierda (col-lg-4)
+        </div>
+
+        <div class="col-12 col-lg-8 demo-col p-2">
+          Columna derecha (col-lg-8) con row anidada:
+
+          <div class="row mt-2">
+            <div class="col-6 demo-col p-2">Anidada 1 (col-6)</div>
+            <div class="col-6 demo-col p-2">Anidada 2 (col-6)</div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="col demo-col p-2">Anidada 3 (col)</div>
+            <div class="col demo-col p-2">Anidada 4 (col)</div>
+            <div class="col demo-col p-2">Anidada 5 (col)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3) CONTENIDO: TEXTO + LISTAS + TRUNCATE ============ -->
+    <section class="demo-box rounded p-3 p-md-4 mb-4">
+      <h2 class="h4 mb-3">3) Contenido (Texto, listas, alineación, truncate)</h2>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p class="text-left mb-2"><strong>text-left</strong> (por defecto)</p>
+          <p class="text-center mb-2"><strong>text-center</strong> centrado</p>
+          <p class="text-right mb-3"><strong>text-right</strong> derecha</p>
+
+          <h3 class="h5 mb-2">Encabezados con clases</h3>
+          <div class="h1 mb-0">.h1</div>
+          <div class="h3 mb-3">.h3</div>
+
+          <div class="display-4 mb-3">.display-4</div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h3 class="h5 mb-2">Listas</h3>
+          <ul class="list-unstyled mb-3">
+            <li>list-unstyled</li>
+            <li>Sin viñetas</li>
+          </ul>
+
+          <ul class="list-inline mb-3">
+            <li class="list-inline-item badge badge-secondary p-2">list-inline-item</li>
+            <li class="list-inline-item badge badge-secondary p-2">en línea</li>
+            <li class="list-inline-item badge badge-secondary p-2">horizontal</li>
+          </ul>
+
+          <h3 class="h5 mb-2">text-truncate</h3>
+          <div class="border rounded p-2 text-truncate" style="max-width: 280px;">
+            Este texto es muy largo y se recortará con puntos suspensivos si no cabe dentro del contenedor.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4) IMÁGENES + FIGURE ============ -->
+    <section class="demo-box rounded p-3 p-md-4 mb-4">
+      <h2 class="h4 mb-3">4) Imágenes (img-fluid, img-thumbnail, rounded, figure)</h2>
+
+      <div class="row">
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <img
+            src="https://via.placeholder.com/900x500.png?text=img-fluid"
+            alt="Ejemplo img-fluid"
+            class="img-fluid rounded"
+          />
+          <p class="mb-0 mt-2 small-note">img-fluid + rounded</p>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <figure class="figure">
+            <img
+              src="https://via.placeholder.com/700x400.png?text=figure-img+img-thumbnail"
+              alt="Ejemplo figure"
+              class="figure-img img-fluid img-thumbnail"
+            />
+            <figcaption class="figure-caption text-center">
+              figure + figure-img + figure-caption
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5) TABLAS (table + responsive) ============ -->
+    <section class="demo-box rounded p-3 p-md-4 mb-4">
+      <h2 class="h4 mb-3">5) Tablas (table, striped, hover, bordered, thead-dark, table-responsive)</h2>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered mb-0">
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Rol</th>
+              <th>Estado</th>
+              <th>Observación (col extra para forzar scroll)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td>Ana</td>
+              <td>Admin</td>
+              <td class="text-success">OK</td>
+              <td>Texto largo para comprobar scroll horizontal en pantallas pequeñas.</td>
+            </tr>
+            <tr>
+              <th>2</th>
+              <td>Mario</td>
+              <td>Editor</td>
+              <td class="text-warning">Pendiente</td>
+              <td>Más texto largo para ver el comportamiento responsive.</td>
+            </tr>
+            <tr>
+              <th>3</th>
+              <td>Lucía</td>
+              <td>Viewer</td>
+              <td class="text-danger">Error</td>
+              <td>Otra columna extra con contenido largo para pruebas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 6) MEDIA OBJECT (comentarios tipo red social) ============ -->
+    <section class="demo-box rounded p-3 p-md-4 mb-4">
+      <h2 class="h4 mb-3">6) Media Object (media + media-body + align-self-*)</h2>
+
+      <div class="media border rounded p-3 bg-white mb-3">
+        <img
+          src="https://via.placeholder.com/64.png?text=AV"
+          class="mr-3 align-self-start rounded-circle border"
+          alt="Avatar"
+        />
+        <div class="media-body">
+          <h5 class="mt-0 mb-1">Usuario 1</h5>
+          Comentario principal. La imagen está alineada arriba con <code>align-self-start</code>.
+        </div>
+      </div>
+
+      <!-- Anidado (respuesta) -->
+      <div class="media border rounded p-3 bg-white">
+        <img
+          src="https://via.placeholder.com/64.png?text=AV"
+          class="mr-3 align-self-center rounded-circle border"
+          alt="Avatar"
+        />
+        <div class="media-body">
+          <h5 class="mt-0 mb-1">Usuario 2</h5>
+          Comentario con imagen centrada verticalmente <code>align-self-center</code>.
+
+          <div class="media mt-3">
+            <img
+              src="https://via.placeholder.com/48.png?text=R"
+              class="mr-3 align-self-end rounded-circle border"
+              alt="Respuesta"
+            />
+            <div class="media-body">
+              <h6 class="mt-0 mb-1">Respuesta</h6>
+              Media anidada (respuesta) con imagen abajo usando <code>align-self-end</code>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7) EMBEDS RESPONSIVE ============ -->
+    <section class="demo-box rounded p-3 p-md-4 mb-4">
+      <h2 class="h4 mb-3">7) Elementos incrustados (embed-responsive)</h2>
+
+      <p class="mb-2 small-note">
+        En Bootstrap 4: <code>embed-responsive</code> + <code>embed-responsive-16by9</code> + <code>embed-responsive-item</code>.
+      </p>
+
+      <div class="embed-responsive embed-responsive-16by9 border rounded">
+        <iframe
+          class="embed-responsive-item"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+          title="Video incrustado"
+        ></iframe>
+      </div>
+
+      <div class="mt-3 embed-responsive embed-responsive-1by1 border rounded">
+        <iframe
+          class="embed-responsive-item"
+          src="https://www.youtube.com/embed/ysz5S6PUM-U"
+          allowfullscreen
+          title="Video 1by1"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- ============ 8) UTILIDADES (colores, display, border, rounded, w/h) ============ -->
+    <section class="demo-box rounded p-3 p-md-4 mb-5">
+      <h2 class="h4 mb-3">8) Utilidades (colores, display, border, rounded, w/h)</h2>
+
+      <!-- Colores semánticos -->
+      <div class="row mb-3">
+        <div class="col-12 col-md-6">
+          <p class="mb-1"><span class="text-muted">text-muted</span></p>
+          <p class="mb-1"><span class="text-primary">text-primary</span></p>
+          <p class="mb-1"><span class="text-success">text-success</span></p>
+          <p class="mb-1"><span class="text-info">text-info</span></p>
+          <p class="mb-1"><span class="text-warning">text-warning</span></p>
+          <p class="mb-1"><span class="text-danger">text-danger</span></p>
+          <p class="mb-1"><span class="text-dark">text-dark</span> (sobre fondo claro)</p>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="p-2 mb-2 bg-primary text-white rounded">bg-primary</div>
+          <div class="p-2 mb-2 bg-success text-white rounded">bg-success</div>
+          <div class="p-2 mb-2 bg-warning text-dark rounded">bg-warning</div>
+          <div class="p-2 mb-2 bg-danger text-white rounded">bg-danger</div>
+        </div>
+      </div>
+
+      <!-- Display -->
+      <div class="border rounded p-3 bg-white mb-3">
+        <div class="d-inline-block border p-2 mr-2">d-inline-block</div>
+        <div class="d-inline-block border p-2">d-inline-block</div>
+        <div class="mt-2 d-none d-sm-block text-success">
+          Visible desde sm (d-none d-sm-block)
+        </div>
+      </div>
+
+      <!-- Borders + rounded -->
+      <div class="row mb-3">
+        <div class="col-12 col-md-4 mb-2 mb-md-0">
+          <div class="border border-primary rounded p-3 bg-white">border border-primary rounded</div>
+        </div>
+        <div class="col-12 col-md-4 mb-2 mb-md-0">
+          <div class="border-top border-danger p-3 bg-white">border-top border-danger</div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="border rounded-circle d-flex align-items-center justify-content-center bg-white" style="width: 80px; height: 80px;">
+            circle
+          </div>
+        </div>
+      </div>
+
+      <!-- Width / Height -->
+      <div class="bg-white border rounded p-3">
+        <div class="mb-2">
+          <div class="bg-info text-white p-2 w-25">w-25</div>
+          <div class="bg-info text-white p-2 w-50 mt-2">w-50</div>
+          <div class="bg-info text-white p-2 w-75 mt-2">w-75</div>
+          <div class="bg-info text-white p-2 w-100 mt-2">w-100</div>
+        </div>
+
+        <div class="d-flex align-items-end" style="height: 110px;">
+          <div class="bg-secondary text-white p-2 h-25 mr-2">h-25</div>
+          <div class="bg-secondary text-white p-2 h-50 mr-2">h-50</div>
+          <div class="bg-secondary text-white p-2 h-75 mr-2">h-75</div>
+          <div class="bg-secondary text-white p-2 h-100">h-100</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bootstrap 4 JS (CDN): jQuery + Popper + Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

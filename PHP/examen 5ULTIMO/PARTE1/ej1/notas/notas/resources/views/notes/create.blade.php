@@ -5,11 +5,11 @@
         @csrf
         <div>
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
+            <input type="text" id="title" name="title" value="{{ old('title') }}" required>
         </div>
-        <div>
+        <div>@old
             <label for="description">Description:</label>
-            <textarea id="description" name="description"></textarea>
+            <textarea id="description" name="description">{{ old('description') }}</textarea>
         </div>
         <button type="submit">Create Note</button>
     </form>

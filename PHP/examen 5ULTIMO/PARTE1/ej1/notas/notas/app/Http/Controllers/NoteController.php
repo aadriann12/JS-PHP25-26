@@ -36,7 +36,7 @@ return view('notes.create');
         $note->title = $data['title'];
         $note->description = $data['description'] ?? null;
         $note->save();
-        return redirect()->route('notes.index');
+        return redirect()->route('notes.index')->with('success', 'Note created successfully.');
 
     }
 

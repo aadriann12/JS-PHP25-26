@@ -11,7 +11,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+$books = Book::all();
+        return view('books.index', compact('books'));
     }
 
     /**
@@ -19,7 +20,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+      return view('books.create');
     }
 
     /**
@@ -27,38 +28,66 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $book = new Book();
+      $data = $request->validate([
+          'title' => 'required|string|max:255',
+          'description' => 'nullable|string',
+          'publication_year' => 'required|integer',
+          'author_id' => 'required|exists:authors,id',
+          'category_id' => 'required|exists:categories,id',
+      ]);
+      $book->title= $data['title'];
+      $book->description= $data['description'] ?? null;
+      $book->publication_year= $data['publication_year'];
+      $book->author_id= $data['author_id'];
+      $book->category_id= $data['category_id'];
+      $book->save();
+      return redirect()->route('books.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Book $book)
     {
-        //
+        return view('books.show', compact('book'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Book $book)
     {
-        //
+         return view('books.edit', compact('book'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Book $book)
     {
-        //
+     $libro=$request->validate([
+         'title' => 'required|string|max:255',
+         'description' => 'nullable|string',
+         'publication_year' => 'required|integer',
+         'author_id' => 'required|exists:authors,id',
+         'category_id' => 'required|exists:categories,id',
+     ]);
+      $book->title= $libro['title'];
+      $book->description= $libro['description'] ?? null;
+      $book->publication_year= $libro['publication_year'];
+      $book->author_id= $libro['author_id'];
+      $book->category_id= $libro['category_id'];
+      $book->save();
+      return redirect()->route('books.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect()->route('books.index');
     }
 }
