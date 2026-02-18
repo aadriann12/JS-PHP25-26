@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Movie extends Model
+{
+protected $fillable = ['titulo', 'anio', 'director_id', 'precio_alquiler'];
+public function genres(){
+    return $this->belongsToMany(Genre::class);
+}
+public function director(){
+    return $this->belongsTo(Director::class);
+}
+}
