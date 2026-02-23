@@ -1,14 +1,22 @@
 <?php
-
-
-
+use App\ConexionBD;
+require_once 'conexionBD.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    echo "<h2>Gracias por su reserva</h2>";
-} else {
-    echo "<h2>Realice su reserva</h2>";
+    try {
+        $conexion = ConexionBD::getConexion();
+        $sql = "UPDATE plazas SET reservada=0 ";//vacia todas las plazas
+      //borrar pasajeros de la plaza
+        $sql2 = "DELETE FROM pasajeros  ";//borrar todos los pasajeros      
+         $stmnt = $conexion->prepare($sql);
+         $stmnt2 = $conexion->prepare($sql2);
+        $stmnt->execute(); 
+        $stmnt2->execute();
+        echo "¡Llegada registrada con éxito!";
+    } catch (PDOException $e) {
+        die("Error al registrar la llegada: " . $e->getMessage());
+    }
+    
 }
-
-
 
 ?>
 

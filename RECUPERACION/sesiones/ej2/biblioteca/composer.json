@@ -1,0 +1,16 @@
+{
+    "name": "adrian/biblioteca",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        { 
+            "name": "Adrián Terán",
+            "email": "153938220+aadriann12@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
