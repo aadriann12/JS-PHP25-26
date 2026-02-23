@@ -10,6 +10,6 @@ Route::get('/user', function (Request $request) {
 Route::post('/login', [AuthController::class, 'Login']);
 //debe autenticar para acceder a las rutas de la api
 Route::middleware('auth:sanctum')->group(function(){
-    Route::apiResource('movies', MovieApiController::class);
+    Route::apiResource('moviesAPI', MovieApiController::class);
     Route::post('/logout', [AuthController::class, 'Logout']);
 });
