@@ -19,7 +19,13 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'email' => 'ejemplo@example.com',
         ]);
+        $this->call([
+            CategorySeeder::class,//el orden importa porque los coches necesitan una categoria
+            CarSeeder::class,
+            PilotSeeder::class
+        ]);
+
     }
 }

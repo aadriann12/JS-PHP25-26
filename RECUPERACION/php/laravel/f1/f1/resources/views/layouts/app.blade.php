@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>ejercicio adrian </h1>
+    <h1>ejercicio adrian mola</h1>
+    @if(session('message'))
+    {{session('message')}}
+    @endif
     @yield('content')
 </body>
 </html>
