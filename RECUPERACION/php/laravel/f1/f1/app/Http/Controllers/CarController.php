@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Car; 
+use App\Models\Car;
 class CarController extends Controller
 {
-  public function inde(){
-    $cars=Car::take(10)->orderBy('id')->get();
+  public function index(){
+    $cars=Car::take(10)->orderBy('id')->with('category')->get();
+
     return view('cars.index',compact('cars'));
 
   }
@@ -23,14 +24,14 @@ class CarController extends Controller
     {
        $data=$request->validate([
         'modelo'=>'required|max:255|min:3',
-        'chasis'=>'required|unique:cars|max:255|min:3'.$car->id,
+        'chasis'=>'required|unique:cars|max:255|min:3'. $request->id,
         'category_id'=>'required',
        ]);
        Car::create($data);
-       return redirect()->route('cars.index');
+       return redirect()->route('cars.index')->with('message','coche creado');
     }
 
-   
+
 
     /**
      * Show the form for editing the specified resource.
@@ -51,9 +52,12 @@ class CarController extends Controller
 'category_id'=>'required',
     ]);
     $car->update($data);
-    return redirect()->route('cars.index');
+    return redirect()->route('cars.index')->with('message','coche actualizado');
     }
 
 
- 
+public function destroy(Car $car){
+    $car->delete();
+    return redirect()->route('cars.index')->with('message','coche eliminado ');
+}
 }

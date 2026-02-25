@@ -6,7 +6,15 @@
     <title>Document</title>
 </head>
 <body>
+
     <h1>ejercicio adrian </h1>
+@if (session('message'))
+{{session('message')}}
+ 
+@endif
+
+
     @yield('content')
+<h1>footer</h1>
 </body>
 </html>
