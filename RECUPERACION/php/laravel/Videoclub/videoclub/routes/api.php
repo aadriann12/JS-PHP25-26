@@ -7,9 +7,9 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::post('/login', [AuthController::class, 'Login']);
-//debe autenticar para acceder a las rutas de la api
-Route::middleware('auth:sanctum')->group(function(){
-    Route::apiResource('movies', MovieApiController::class);
-    Route::post('/logout', [AuthController::class, 'Logout']);
-});
+// Route::post('/login', [AuthController::class, 'Login']);
+// //debe autenticar para acceder a las rutas de la api
+// Route::middleware('auth:sanctum')->group(function(){
+//     Route::apiResource('movies', MovieApiController::class);
+//     Route::post('/logout', [AuthController::class, 'Logout']);
+// });

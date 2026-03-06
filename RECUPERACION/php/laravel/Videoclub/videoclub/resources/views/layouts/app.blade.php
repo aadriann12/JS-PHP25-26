@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="{{ asset('css/videoclub.css') }}">
 </head>
 <body>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if($errors->any())
+    @foreach($errors->all() as $error)
+        <div class="alert alert-danger">
+            {{ $error }}
+        </div>
+@endforeach
+    @endif
 @yield('content')
+
 </body>
 </html>
