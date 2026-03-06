@@ -1,0 +1,56 @@
+/* Discografía elegant stylesheet
+   Place in public/css/discografia.css and layout will load it via asset()
+*/
+
+:root{
+  --bg: #0b1020;
+  --surface: #0f1724;
+  --muted: #b6c0c9;
+  --accent: #ffb86b; /* warm amber */
+  --accent-2: #7dd3fc; /* soft sky */
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --max-width: 1100px;
+  --gap: 1rem;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+html,body{height:100%;margin:0}
+body{
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(125,211,255,0.06), transparent),
+              radial-gradient(1000px 500px at 90% 90%, rgba(255,184,107,0.04), transparent),
+              var(--bg);
+  color:#e6eef3;
+  -webkit-font-smoothing:antialiased;
+  padding:2rem 1rem;
+}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:1rem}
+
+.header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.25rem}
+.brand{display:flex;align-items:center;gap:.75rem}
+.brand .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#082227;font-weight:700}
+.brand h1{margin:0;font-size:1.1rem}
+
+.nav{display:flex;gap:.5rem;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;padding:.5rem .75rem;border-radius:8px}
+.nav a:hover{color:#fff;background:rgba(255,255,255,0.03)}
+
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:1rem;border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.6);}
+
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:.75rem 1rem;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03)}
+.table th{color:var(--muted);font-weight:600}
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .75rem;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit;text-decoration:none}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#ffd59a);color:#082227;border:none;font-weight:600}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04)}
+
+.alert{padding:.75rem 1rem;border-radius:8px;background:linear-gradient(90deg,#183a3b,transparent);color:var(--muted);margin-bottom:1rem}
+
+.form-control{width:100%;padding:.6rem;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.03);color:inherit}
+
+.footer{margin-top:2rem;text-align:center;color:var(--muted);font-size:.85rem}
+
+/* responsive */
+@media (max-width:720px){.header{flex-direction:column;align-items:flex-start}.nav{flex-wrap:wrap}}
