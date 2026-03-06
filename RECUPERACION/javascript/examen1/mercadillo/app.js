@@ -4,7 +4,7 @@ const productos = {};
 function agregarProducto(nombre, cantidad, precio, categoria) {
 
     if (cantidad > 0 && precio > 0 && nombre.trim() !== '' && categoria.trim() !== '') {
-       if (productos.length > 0 && !) {
+       if (productos.length > 0 && !productos.some(producto => producto.nombre.toLowerCase() === nombre.toLowerCase())) {
          productos.push({
            'Nombre':  nombre,
              'Cantidad': cantidad,
