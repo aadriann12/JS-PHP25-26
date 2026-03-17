@@ -76,7 +76,7 @@ function estadisticasPorModulo(alumnos){
     }
 
 return [{modulo:"DWEC",convocatorias:dwecConvocatoriasMedia,nota:dwecNotaMedia},{modulo:"DWES",convocatorias:dwesConvocatoriasMedia,nota:dwesNotaMedia}];
-}
+
 function cargarCadenJson(cadena){
     try {
         let objeto=JSON.parse(cadena);
