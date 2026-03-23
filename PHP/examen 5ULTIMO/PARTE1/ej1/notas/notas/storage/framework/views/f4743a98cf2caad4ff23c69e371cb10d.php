@@ -1,0 +1,1 @@
+<?php /**PATH /Users/adrian12/Documents/JS-PHP25-26/PHP/examen 5ULTIMO/PARTE1/ej1/notas/notas/resources/views/notes/show.blade.php ENDPATH**/ ?>

@@ -1,0 +1,36 @@
+<?php $__env->startSection('content'); ?>
+<div style="max-width: 600px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
+        <a href="<?php echo e(route('categories.index')); ?>" class="btn btn-outline" style="padding: 0.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </a>
+        <h1>Nueva Categoría</h1>
+    </div>
+
+    <div class="card">
+        <form action="<?php echo e(route('categories.store')); ?>" method="POST">
+            <?php echo csrf_field(); ?>
+            
+            <div class="form-group">
+                <label for="name">Nombre de la Categoría</label>
+                <input type="text" name="name" id="name" placeholder="Ej: Ciencia Ficción" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <textarea name="description" id="description" rows="4" placeholder="De qué trata esta categoría..." required></textarea>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <button type="submit" class="btn btn-primary" style="flex: 1;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                    Guardar Categoría
+                </button>
+                <a href="<?php echo e(route('categories.index')); ?>" class="btn btn-outline">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.layout', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /Users/adrian12/Documents/JS-PHP25-26/RECUPERACION/php/laravel/ejercicio3/resources/views/categories/create.blade.php ENDPATH**/ ?>
